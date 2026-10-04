@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registry</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #eef2f0;
+      color: #1d2b26;
+      margin: 0;
+      padding: 24px 16px;
+    }
+    main { max-width: 560px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin: 0 0 4px; }
+    p.sub { margin: 0 0 20px; color: #4d5f58; }
+    .panel {
+      background: #fff;
+      border: 2px solid #1d2b26;
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+    label { display: block; font-weight: bold; margin: 12px 0 4px; }
+    input {
+      width: 100%;
+      padding: 10px;
+      font: inherit;
+      border: 1px solid #1d2b26;
+      background: #f9fbfa;
+    }
+    input:focus, button:focus-visible { outline: 3px solid #e0a100; outline-offset: 1px; }
+    .buttons { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    button {
+      font: inherit;
+      padding: 10px 16px;
+      border: 2px solid #1d2b26;
+      cursor: pointer;
+      background: #1f6f54;
+      color: #fff;
+    }
+    button.danger { background: #fff; color: #9c2a1c; border-color: #9c2a1c; }
+    #message { min-height: 1.4em; margin-top: 12px; font-style: italic; }
+    #message.error { color: #9c2a1c; }
+    h2 { margin: 0 0 10px; font-size: 1.2rem; }
+    ol { padding-left: 22px; margin: 0; }
+    li { padding: 6px 0; border-bottom: 1px dashed #b7c4be; }
+    li small { display: block; color: #4d5f58; }
+    .empty { color: #4d5f58; font-style: italic; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Student Registry</h1>
+    <p class="sub">Add students, see everyone added, and remove the last one.</p>
+
+    <!-- FORM: where the inputter types the student's details -->
+    <section class="panel">
+      <label for="name">Name</label>
+      <input id="name" type="text" placeholder="e.g. Ada Obi">
+
+      <label for="matric">Matric No</label>
+      <input id="matric" type="text" placeholder="e.g. 2021/001">
+
+      <label for="level">Level</label>
+      <input id="level" type="text" placeholder="e.g. 200">
+
+      <label for="department">Department</label>
+      <input id="department" type="text" placeholder="e.g. Physics">
+
+      <div class="buttons">
+        <button id="addBtn">Add student</button>
+        <button id="removeBtn" class="danger">Remove last student</button>
+      </div>
+      <p id="message"></p>
+    </section>
+
+    <!-- LIST: names of all students added appear here -->
+    <section class="panel">
+      <h2>Students added (<span id="count">0</span>)</h2>
+      <ol id="studentList"></ol>
+      <p id="emptyNote" class="empty">No students added yet.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
